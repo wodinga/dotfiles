@@ -1,11 +1,21 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/drg62sf/.oh-my-zsh"
 
 # set node environment default
 export NODE_ENV=development
+
+#source the powerlevel9k theme
+
+p9k="/usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme"
+if [[ -r $p9k ]]; then
+	. /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
+else
+	echo "guess it doesn't exist ¯\_(ツ)_/¯" 
+fi
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -88,7 +98,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -101,7 +111,7 @@ source $ZSH/oh-my-zsh.sh
 . /usr/local/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
 fpath=(/usr/local/share/zsh-completions $fpath)
   export NVM_DIR="$HOME/.nvm"
-  . "/usr/local/opt/nvm/nvm.sh"export PCFNP='http://api.run-np.homedepot.com'
+#  . "/usr/local/opt/nvm/nvm.sh"
 export PCFZA='https://api.run-za.homedepot.com'
 export PCFZB='https://api.run-zb.homedepot.com'
 export PCFNP='https://api.run-np.homedepot.com'

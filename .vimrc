@@ -7,3 +7,4 @@ set term=xterm-256color
 set termencoding=utf-8
 set number
 syntax on
+set cindent
