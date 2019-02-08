@@ -4,6 +4,7 @@ VIMRC="./.vimrc"
 ZSHRC="./.zshrc"
 OHMYZSH=$HOME/.oh-my-zsh
 SSHPUBKEY=$HOME/.ssh/.id_rsa.pub
+P9K="sambadevi/powerlevel9k"
 brewPkgs=(cf-cli gdbm git git-lfs gradle icu4c mongodb nvm nyancat openssl pkg-config vault yarn zsh-completions)
 
 # Check if Oh My Zsh is installed
@@ -26,6 +27,16 @@ else
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	brew install ${brewPkgs[@]} 
 fi
+
+#Install powerlevel9k
+if [[ ! $(brew search $P9K) ]]; then
+	echo installing $P9K
+	brew tap $P9K
+fi
+
+brew install $P9K/powerlevel9k
+
+
 
 # Generate default ssh key 
 # ssh-keygen
