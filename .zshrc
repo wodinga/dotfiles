@@ -9,7 +9,6 @@ export ZSH="/Users/drg62sf/.oh-my-zsh"
 export NODE_ENV=development
 
 #source the powerlevel9k theme
-
 p9k="/usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme"
 if [[ -r $p9k ]]; then
 	. /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
@@ -20,7 +19,7 @@ fi
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
+#ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -49,10 +48,10 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -76,6 +75,16 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  cloudfoundry
+  brew
+#catimg
+  docker
+  encode64
+  osx
+  node
+  npm
+  pod
+  yarn
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -122,9 +131,8 @@ if [ -f '/Users/drg62sf/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Use
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/drg62sf/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/drg62sf/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-ZSH_THEME="robbyrussell"
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(battery status root_indicator background_jobs history time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh user dir dir_writable vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(battery status root_indicator background_jobs time)
 
 GOOGLE_APPLICATION_CREDENTIALS=/Users/drg62sf/Downloads/np-inventory-commons-thd-d0fb703f37fc.json
