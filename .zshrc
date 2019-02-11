@@ -13,7 +13,7 @@ p9k="/usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme"
 if [[ -r $p9k ]]; then
 	. /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
 else
-	echo "guess it doesn't exist ¯\_(ツ)_/¯" 
+	echo "guess it doesn't exist ¯\_(ツ)_/¯"
 fi
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -121,7 +121,8 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 . /usr/local/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
 fpath=(/usr/local/share/zsh-completions $fpath)
   export NVM_DIR="$HOME/.nvm"
-#  . "/usr/local/opt/nvm/nvm.sh"
+source $(brew --prefix nvm)/nvm.sh
+
 export PCFZA='https://api.run-za.homedepot.com'
 export PCFZB='https://api.run-zb.homedepot.com'
 export PCFNP='https://api.run-np.homedepot.com'
