@@ -85,6 +85,7 @@ plugins=(
   npm
   pod
   yarn
+  iterm
 )
 
 source $ZSH/oh-my-zsh.sh
