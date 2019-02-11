@@ -36,6 +36,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'pangloss/vim-javascript'" All of your Plugins must be added before the following line
 Plugin  'moll/vim-node'
 Plugin 'w0rp/ale'
+Plugin 'editorconfig/editorconfig-vim' ".editorconfig support
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
