@@ -77,6 +77,7 @@ let g:ale_fixers = {
 \   'eslint'
 \ ],
 \ 'java': [
+\   'javac',
 \   'google_java_format'
 \ ],
 \ 'swift': ['swiftlint']

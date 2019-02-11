@@ -13,6 +13,9 @@ brew "yarn"
 brew "zsh-completions"
 brew "mas" # Mac App Store CLI
 brew "swiftlint"
+brew "google-java-format"
 
 cask "iterm2"
 cask "postman"
+cask "google-cloud-sdk"
+cask "graphiql"
