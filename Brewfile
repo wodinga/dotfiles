@@ -11,3 +11,8 @@ brew "pkg-config"
 brew "vault"
 brew "yarn"
 brew "zsh-completions"
+brew "mas" # Mac App Store CLI
+brew "swiftlint"
+
+cask "iterm2"
+cask "postman"
