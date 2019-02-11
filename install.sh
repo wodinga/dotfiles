@@ -7,34 +7,36 @@ SSHPUBKEY=$HOME/.ssh/.id_rsa.pub
 P9K="sambadevi/powerlevel9k"
 brewPkgs=(cf-cli gdbm git git-lfs gradle icu4c mongodb nvm nyancat openssl pkg-config vault yarn zsh-completions)
 
+xcode-select --install
+
 # Check if Oh My Zsh is installed
 if [[ -d $OHMYZSH ]]
 then
-	echo -e "Oh My Zsh is already installed"
+  echo -e "Oh My Zsh is already installed"
 else
-	echo -e "Oh My Zsh is not installed"
-	# Install Oh My Zsh
-	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  echo -e "Oh My Zsh is not installed"
+  # Install Oh My Zsh
+  sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
 
 # Check if homebrew is installed
 if [[ -x $(which brew) ]] 
 then
-	echo -e "Brew exists\n"
-	brew update
+  echo -e "Brew exists\n"
+  brew update
 
 else
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-	brew install ${brewPkgs[@]} 
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  brew install ${brewPkgs[@]} 
 fi
 
 #Install powerlevel9k
 if [[ ! $(brew search $P9K) ]]; then
-	echo installing $P9K
-	brew tap $P9K
+  echo installing $P9K
+  brew tap $P9K
+  brew install $P9K/powerlevel9k
 fi
 
-brew install $P9K/powerlevel9k
 
 #Link .rc files to their respective places
 ln -sf $(pwd)/$VIMRC $HOME/$VIMRC
@@ -48,6 +50,15 @@ ln -sf $(pwd)/$ZSHRC $HOME/$ZSHRC
 
 # Restart automatically if the computer freezes
 sudo systemsetup -setrestartfreeze on
+
+# Install Vundle Plugin Manager for Vim
+if [[ ! -r ~/.vim/bundle/ ]]
+then
+	mkdir ~/.vim/bundle/
+fi
+
+ln -sf $(pwd)/Vundle ~/.vim/bundle/Vundle.vim
+vim +PluginInstal +qall
 
 # Disable automatic capitalization as it’s annoying when typing code
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
