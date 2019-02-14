@@ -14,6 +14,8 @@ brew "zsh-completions"
 brew "mas" # Mac App Store CLI
 brew "swiftlint"
 brew "google-java-format"
+brew "zsh-syntax-highlighting"
+brew "zsh-lovers"
 
 cask "iterm2"
 cask "postman"
