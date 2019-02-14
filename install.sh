@@ -7,7 +7,7 @@ SSHPUBKEY=$HOME/.ssh/.id_rsa.pub
 P9K="sambadevi/powerlevel9k"
 brewPkgs=(cf-cli gdbm git git-lfs gradle icu4c mongodb nvm nyancat openssl pkg-config vault yarn zsh-completions)
 
-xcode-select --install
+#xcode-select --install
 
 # Check if Oh My Zsh is installed
 if [[ -d $OHMYZSH ]]

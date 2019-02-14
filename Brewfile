@@ -1,5 +1,6 @@
 brew "cf-cli"
 brew "gdbm"
+brew "git"
 brew "git-lfs"
 brew "gradle"
 brew "icu4c"
