@@ -20,7 +20,7 @@ else
 fi
 
 # Check if homebrew is installed
-if [[ -x $(which brew) ]] 
+if [[ -x $(which brew) ]]
 then
   echo -e "Brew exists\n"
   brew update
@@ -44,7 +44,7 @@ fi
 ln -sf $(pwd)/$VIMRC $HOME/$VIMRC
 ln -sf $(pwd)/$ZSHRC $HOME/$ZSHRC
 
-# Generate default ssh key 
+# Generate default ssh key
 # ssh-keygen
 
 
@@ -78,8 +78,8 @@ defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 # defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 
 # Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 1
-defaults write NSGlobalDomain InitialKeyRepeat -int 10
+defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
 # Finder: show hidden files by default
 defaults write com.apple.finder AppleShowAllFiles -bool true
