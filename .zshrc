@@ -1,9 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+export TERM="xterm-256color"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/drg62sf/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
 # set node environment default
 export NODE_ENV=development
@@ -118,7 +118,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-. /usr/local/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
+#. /usr/local/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
 fpath=(/usr/local/share/zsh-completions $fpath)
   export NVM_DIR="$HOME/.nvm"
 source $(brew --prefix nvm)/nvm.sh
@@ -126,7 +126,8 @@ source $(brew --prefix nvm)/nvm.sh
 export PCFZA='https://api.run-za.homedepot.com'
 export PCFZB='https://api.run-zb.homedepot.com'
 export PCFNP='https://api.run-np.homedepot.com'
-source ~/.iterm2_shell_integration.zsh
+
+#source ~/.iterm2_shell_integration.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/drg62sf/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/drg62sf/Downloads/google-cloud-sdk/path.zsh.inc'; fi
