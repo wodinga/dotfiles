@@ -61,14 +61,18 @@ filetype plugin indent on    " required
 set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
-set tabstop=4
+set softtabstop=2
 set expandtab
+set tabstop=2
 set shiftwidth=2
 set number
-syntax on
 set autoindent
 set smartindent
 set cindent
+set paste
+:set ai
+set hlsearch
+syntax on
 " Set this variable to 1 to fix files when you save them.
 let g:ale_fix_on_save = 1
 
@@ -84,3 +88,5 @@ let g:ale_fixers = {
 \ ],
 \ 'swift': ['swiftlint']
 \}
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
