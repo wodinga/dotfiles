@@ -123,10 +123,6 @@ fpath=(/usr/local/share/zsh-completions $fpath)
   export NVM_DIR="$HOME/.nvm"
 source $(brew --prefix nvm)/nvm.sh
 
-export PCFZA='https://api.run-za.homedepot.com'
-export PCFZB='https://api.run-zb.homedepot.com'
-export PCFNP='https://api.run-np.homedepot.com'
-
 #source ~/.iterm2_shell_integration.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -137,5 +133,3 @@ if [ -f '/Users/drg62sf/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then .
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh user dir dir_writable vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(battery status root_indicator background_jobs time)
-
-GOOGLE_APPLICATION_CREDENTIALS=/Users/drg62sf/Downloads/np-inventory-commons-thd-d0fb703f37fc.json
