@@ -117,4 +117,6 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 # Copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in Mail.app
 defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 
+// Install shell integrations for iterm
+curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
 it2setcolor preset "Solarized Dark"
