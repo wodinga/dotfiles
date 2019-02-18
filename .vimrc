@@ -35,7 +35,6 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'pangloss/vim-javascript'" All of your Plugins must be added before the following line
 Plugin  'moll/vim-node'
-Plugin 'w0rp/ale'
 Plugin 'editorconfig/editorconfig-vim' ".editorconfig support
 
 call vundle#end()            " required
@@ -73,10 +72,20 @@ set paste
 :set ai
 set hlsearch
 syntax on
-" Set this variable to 1 to fix files when you save them.
-let g:ale_fix_on_save = 1
 
 " Set Linters for different programming languages
+let g:ale_linters = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\ 'javascript': [
+\   'eslint'
+\ ],
+\ 'java': [
+\   'javac',
+\   'google_java_format'
+\ ],
+\ 'swift': ['swiftlint']
+\}
+
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \ 'javascript': [
@@ -88,5 +97,11 @@ let g:ale_fixers = {
 \ ],
 \ 'swift': ['swiftlint']
 \}
+
+" Set this variable to 1 to fix files when you save them.
+let g:ale_linters_explicit = 1
+let g:ale_fix_on_save = 1
+Plugin 'w0rp/ale'
+
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
