@@ -77,15 +77,19 @@ plugins=(
   git
   cloudfoundry
   brew
-#catimg
+	catimg
   docker
   encode64
   osx
   node
-  npm
   pod
   yarn
   iterm
+	xcode
+	vim-integration
+	vundle
+	vscode
+	z
 )
 
 source $ZSH/oh-my-zsh.sh
