@@ -37,6 +37,8 @@ Plugin 'pangloss/vim-javascript'" All of your Plugins must be added before the f
 Plugin  'moll/vim-node'
 Plugin 'editorconfig/editorconfig-vim' ".editorconfig support
 
+
+Plugin 'keith/swift.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
