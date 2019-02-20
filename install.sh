@@ -4,7 +4,6 @@ VIMRC=".vimrc"
 ZSHRC=".zshrc"
 OHMYZSH=$HOME/.oh-my-zsh
 SSHPUBKEY=$HOME/.ssh/.id_rsa.pub
-P9K="sambadevi/powerlevel9k"
 
 #xcode-select --install
 
@@ -30,14 +29,6 @@ fi
 
 #Install Homebrew dependencies
 brew bundle
-
-#Install powerlevel9k
-if [[ ! $(brew search $P9K) ]]; then
-  echo installing $P9K
-  brew tap $P9K
-  brew install $P9K/powerlevel9k
-fi
-
 
 #Link .rc files to their respective places
 ln -sf $(pwd)/$VIMRC $HOME/$VIMRC
