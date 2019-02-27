@@ -17,6 +17,7 @@ brew "swiftlint"
 brew "google-java-format"
 brew "zsh-syntax-highlighting"
 brew "zsh-lovers"
+brew "sambadevi/powerlevel9k/powerlevel9k"
 
 cask "iterm2"
 cask "postman"
