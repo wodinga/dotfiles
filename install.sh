@@ -6,7 +6,7 @@ OHMYZSH=$HOME/.oh-my-zsh
 SSHPUBKEY=$HOME/.ssh/.id_rsa.pub
 P9K="sambadevi/powerlevel9k"
 
-#xcode-select --install
+xcode-select --install
 
 # Check if Oh My Zsh is installed
 if [[ -d $OHMYZSH ]]
@@ -40,8 +40,8 @@ fi
 
 
 #Link .rc files to their respective places
-ln -sf $(pwd)/$VIMRC $HOME/$VIMRC
-ln -sf $(pwd)/$ZSHRC $HOME/$ZSHRC
+ln -sf "$(pwd)/.vimrc" $HOME/
+ln -sf "$(pwd)/.zshrc" $HOME/
 
 # Generate default ssh key
 # ssh-keygen
@@ -53,13 +53,13 @@ ln -sf $(pwd)/$ZSHRC $HOME/$ZSHRC
 sudo systemsetup -setrestartfreeze on
 
 # Install Vundle Plugin Manager for Vim
-if [[ ! -r ~/.vim/bundle/ ]]
+if [[ ! -r ~/.vim/bundle/Vundle.vim ]]
 then
-	mkdir ~/.vim/bundle/
+	mkdir -p ~/.vim/bundle/Vundle.vim
 fi
 
-ln -sf $(pwd)/Vundle ~/.vim/bundle/Vundle.vim
-vim +PluginInstal +qall
+ln -sf "$(pwd)/Vundle.vim" ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
 
 # Disable automatic capitalization as it’s annoying when typing code
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
@@ -117,6 +117,6 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 # Copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in Mail.app
 defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 
-// Install shell integrations for iterm
+# Install shell integrations for iterm
 curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
 it2setcolor preset "Solarized Dark"
