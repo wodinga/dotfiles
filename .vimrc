@@ -39,6 +39,7 @@ Plugin  'moll/vim-node'
 Plugin 'editorconfig/editorconfig-vim' ".editorconfig support
 Plugin 'prettier/vim-prettier'
 
+Plugin 'jparise/vim-graphql' " GraphQL syntax highlighting
 
 Plugin 'keith/swift.vim'
 call vundle#end()            " required
