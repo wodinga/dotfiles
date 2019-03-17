@@ -78,11 +78,11 @@ plugins=(
   cloudfoundry
   brew
 	#catimg
-  docker
+  #docker
   encode64
   osx
   node
-  #pod
+  pod
   yarn
   iterm
 	xcode
@@ -127,7 +127,7 @@ fpath=(/usr/local/share/zsh-completions $fpath)
   export NVM_DIR="$HOME/.nvm"
 source $(brew --prefix nvm)/nvm.sh
 
-#source ~/.iterm2_shell_integration.zsh
+source ~/.iterm2_shell_integration.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f $HOME/Downloads/google-cloud-sdk/path.zsh.inc ]; then . $HOME/Downloads/google-cloud-sdk/path.zsh.inc; fi
@@ -137,7 +137,8 @@ if [ -f '/Users/drg62sf/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then .
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh user dir dir_writable vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(battery status root_indicator background_jobs time)
-alias eslint=~/.config/yarn/global/node_modules/eslint/bin/eslint.js
+alias eslint=node_modules/eslint/bin/eslint.js
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+#eval "$(jenv init -)"

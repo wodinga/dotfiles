@@ -1,37 +1,6 @@
 set nocompatible " be iMproved, required
 filetype off                  " required
 
-" Set Linters for different programming languages
-let g:ale_linters = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\ 'json': [
-\   'jsonlint',
-\ ],
-\ 'javascript': [
-\   'eslint'
-\ ],
-\ 'java': [
-\   'javac',
-\   'google_java_format'
-\ ],
-\ 'swift': ['swiftlint']
-\}
-
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\ 'json': [
-\   'jsonlint',
-\ ],
-\ 'javascript': [
-\   'eslint'
-\ ],
-\ 'java': [
-\   'javac',
-\   'google_java_format'
-\ ],
-\ 'swift': ['swiftlint']
-\}
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -68,6 +37,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'pangloss/vim-javascript'" All of your Plugins must be added before the following line
 Plugin  'moll/vim-node'
 Plugin 'editorconfig/editorconfig-vim' ".editorconfig support
+Plugin 'prettier/vim-prettier'
 
 
 Plugin 'keith/swift.vim'
@@ -95,7 +65,6 @@ set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
 set softtabstop=2
-set expandtab
 set tabstop=2
 set shiftwidth=2
 set number
@@ -105,11 +74,45 @@ set cindent
 set paste
 :set ai
 set hlsearch
+set expandtab
 syntax on
 
 " Set this variable to 1 to fix files when you save them.
 let g:ale_linters_explicit = 1
 let g:ale_fix_on_save = 1
+
+" Set Linters for different programming languages
+let g:ale_linters = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\ 'json': [
+\   'jsonlint',
+\ ],
+\ 'javascript': [
+\   'prettier',
+\   'eslint'
+\ ],
+\ 'java': [
+\   'javac',
+\   'google_java_format'
+\ ],
+\ 'swift': ['swiftlint']
+\}
+
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\ 'json': [
+\   'jsonlint',
+\ ],
+\ 'javascript': [
+\   'prettier',
+\   'eslint'
+\ ],
+\ 'java': [
+\   'javac',
+\   'google_java_format'
+\ ],
+\ 'swift': ['swiftlint']
+\}
 
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
