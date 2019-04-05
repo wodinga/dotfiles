@@ -44,9 +44,9 @@ ln -sf "$(pwd)/.zshrc" $HOME/
 sudo systemsetup -setrestartfreeze on
 
 # Install Vundle Plugin Manager for Vim
-if [[ ! -r ~/.vim/bundle/Vundle.vim ]]
+if [[ ! -r ~/.vim/bundle/ ]]
 then
-	mkdir -p ~/.vim/bundle/Vundle.vim
+	mkdir -p ~/.vim/bundle/
 fi
 
 ln -sf "$(pwd)/Vundle.vim" ~/.vim/bundle/Vundle.vim

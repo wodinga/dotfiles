@@ -89,7 +89,6 @@ let g:ale_linters = {
 \   'jsonlint',
 \ ],
 \ 'javascript': [
-\   'prettier',
 \   'eslint'
 \ ],
 \ 'java': [
@@ -105,7 +104,6 @@ let g:ale_fixers = {
 \   'jsonlint',
 \ ],
 \ 'javascript': [
-\   'prettier',
 \   'eslint'
 \ ],
 \ 'java': [
