@@ -40,8 +40,9 @@ Plugin 'editorconfig/editorconfig-vim' ".editorconfig support
 Plugin 'prettier/vim-prettier'
 
 Plugin 'jparise/vim-graphql' " GraphQL syntax highlighting
+Plugin 'apple/swift', {'rtp': 'utils/vim/', 'name' : 'Swift-Syntax'}
 
-Plugin 'keith/swift.vim'
+"Plugin 'keith/swift.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
