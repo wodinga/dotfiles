@@ -71,7 +71,6 @@ set tabstop=2
 set shiftwidth=2
 set number
 set autoindent
-set smartindent
 set cindent
 set paste
 :set ai
@@ -111,7 +110,6 @@ let g:ale_fixers = {
 \   'javac',
 \   'google_java_format'
 \ ],
-\ 'swift': ['swiftlint']
 \}
 
 filetype plugin on
