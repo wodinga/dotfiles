@@ -111,3 +111,6 @@ defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 # Install shell integrations for iterm
 curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
 it2setcolor preset "Solarized Dark"
+
+# Prefer nvim from now on
+alias vim=nvim
