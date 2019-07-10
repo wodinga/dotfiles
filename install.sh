@@ -43,6 +43,8 @@ ln -sf "$(pwd)/.zshrc" $HOME/
 # Restart automatically if the computer freezes
 sudo systemsetup -setrestartfreeze on
 
+git submodule init && git submodule update
+
 # Install Vundle Plugin Manager for Vim
 if [[ ! -r ~/.vim/bundle/ ]]
 then

@@ -26,4 +26,4 @@ cask "qlcolorcode" # Preview source code files with syntax highlighting
 cask "qlstephen" # Preview plain text files without or with unknown file extension. Example: README, CHANGELOG, index.styl, etc
 cask "qlmarkdown" # Preview Markdown files
 cask "homebrew/cask-fonts/font-sourcecodepro-nerd-font-mono"
-brew cask install font-hack
+cask "font-hack"
