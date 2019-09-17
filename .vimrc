@@ -38,7 +38,6 @@ Plugin 'pangloss/vim-javascript'" All of your Plugins must be added before the f
 Plugin  'moll/vim-node'
 Plugin 'editorconfig/editorconfig-vim' ".editorconfig support
 Plugin 'prettier/vim-prettier'
-
 Plugin 'jparise/vim-graphql' " GraphQL syntax highlighting
 Plugin 'apple/swift', {'rtp': 'utils/vim/', 'name' : 'Swift-Syntax'}
 
@@ -90,6 +89,9 @@ let g:ale_linters = {
 \ ],
 \ 'javascript': [
 \   'eslint'
+\ ],
+\ 'python': [
+\   'pylint',
 \ ],
 \ 'java': [
 \   'javac',
