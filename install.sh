@@ -51,7 +51,7 @@ then
 	mkdir -p ~/.vim/bundle/
 fi
 
-ln -sf "$(pwd)/Vundle.vim" ~/.vim/bundle/Vundle.vim
+ln -sf "$(pwd)/Vundle.vim" ~/.vim/bundle
 vim +PluginInstall +qall
 
 # Disable automatic capitalization as it’s annoying when typing code
