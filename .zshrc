@@ -13,13 +13,13 @@ p9k="/usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme"
 if [[ -r $p9k ]]; then
 	. /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
 else
-	echo "guess it doesn't exist ¯\_(ツ)_/¯"
+	git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 fi
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
