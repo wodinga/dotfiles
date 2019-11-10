@@ -84,9 +84,7 @@ plugins=(
   node
   pod
   yarn
-  iterm
 	xcode
-	vim-integration
 	vundle
 	vscode
 	z
