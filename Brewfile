@@ -29,3 +29,4 @@ cask "qlstephen" # Preview plain text files without or with unknown file extensi
 cask "qlmarkdown" # Preview Markdown files
 cask "homebrew/cask-fonts/font-sourcecodepro-nerd-font-mono"
 cask "font-hack"
+cask "macvim"

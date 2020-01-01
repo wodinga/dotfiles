@@ -40,6 +40,8 @@ Plugin 'editorconfig/editorconfig-vim' ".editorconfig support
 Plugin 'prettier/vim-prettier'
 Plugin 'jparise/vim-graphql' " GraphQL syntax highlighting
 Plugin 'apple/swift', {'rtp': 'utils/vim/', 'name' : 'Swift-Syntax'}
+Plugin 'dracula/vim', { 'name': 'dracula' }
+
 
 "Plugin 'keith/swift.vim'
 call vundle#end()            " required
@@ -117,3 +119,4 @@ let g:ale_fixers = {
 
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+colorscheme dracula
