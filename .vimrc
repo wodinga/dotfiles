@@ -75,6 +75,7 @@ set paste
 :set ai
 set hlsearch
 set expandtab
+set autoread " Should auto-reload the file in many cases"
 syntax on
 
 " Set this variable to 1 to fix files when you save them.
