@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export TERM="xterm-256color"
@@ -9,17 +16,18 @@ export ZSH=$HOME/.oh-my-zsh
 export NODE_ENV=development
 
 #source the powerlevel9k theme
-p9k="/usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme"
-if [[ -r $p9k ]]; then
-	. /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
-else
-	git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-fi
+#p9k="/usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme"
+#if [[ -r $p9k ]]; then
+#	. /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
+#else
+#	git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+#fi
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+#ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -127,16 +135,22 @@ source $(brew --prefix nvm)/nvm.sh
 
 source ~/.iterm2_shell_integration.zsh
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f $HOME/Downloads/google-cloud-sdk/path.zsh.inc ]; then . $HOME/Downloads/google-cloud-sdk/path.zsh.inc; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/drg62sf/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/drg62sf/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh user dir dir_writable vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(battery status root_indicator background_jobs time)
+POWERLEVEL10K_LEFT_PROMPT_ELEMENTS=(ssh user dir dir_writable vcs)
+POWERLEVEL10K_RIGHT_PROMPT_ELEMENTS=(battery status root_indicator background_jobs time)
 alias eslint=node_modules/eslint/bin/eslint.js
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 #eval "$(jenv init -)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/drg62sf/bash install.sh --disable-prompts/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/drg62sf/bash install.sh --disable-prompts/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/drg62sf/bash install.sh --disable-prompts/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/drg62sf/bash install.sh --disable-prompts/google-cloud-sdk/completion.zsh.inc'; fi
+source /Users/drg62sf/google-cloud-sdk/path.zsh.inc
+source /Users/drg62sf/google-cloud-sdk/completion.zsh.inc
+source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

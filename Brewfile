@@ -1,4 +1,4 @@
-tap "sambadevi/powerlevel9k"
+tap "romkatv/powerlevel10k"
 
 brew "cf-cli"
 brew "git"
@@ -16,7 +16,7 @@ brew "swiftlint"
 brew "google-java-format"
 brew "zsh-syntax-highlighting"
 brew "zsh-lovers"
-brew "powerlevel9k"
+brew "powerlevel10k"
 brew "nvim"
 
 cask "iterm2"

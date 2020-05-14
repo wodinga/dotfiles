@@ -71,6 +71,7 @@ set softtabstop=2
 set tabstop=2
 set shiftwidth=2
 set number
+set relativenumber
 set autoindent
 set cindent
 set paste
