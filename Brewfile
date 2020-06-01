@@ -18,6 +18,7 @@ brew "zsh-syntax-highlighting"
 brew "zsh-lovers"
 brew "powerlevel10k"
 brew "nvim"
+brew "signal"
 
 cask "iterm2"
 cask "postman"
