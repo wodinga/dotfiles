@@ -31,3 +31,4 @@ cask "qlmarkdown" # Preview Markdown files
 cask "homebrew/cask-fonts/font-sourcecodepro-nerd-font-mono"
 cask "font-hack"
 cask "macvim"
+cask "iina"
