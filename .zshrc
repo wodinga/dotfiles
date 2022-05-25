@@ -26,8 +26,7 @@ export NODE_ENV=development
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
-#ZSH_THEME="powerlevel9k/powerlevel9k"
+#ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -88,7 +87,7 @@ plugins=(
 	#catimg
   #docker
   encode64
-  osx
+  macos
   node
   pod
   yarn
@@ -150,7 +149,7 @@ if [ -f '/Users/drg62sf/bash install.sh --disable-prompts/google-cloud-sdk/path.
 if [ -f '/Users/drg62sf/bash install.sh --disable-prompts/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/drg62sf/bash install.sh --disable-prompts/google-cloud-sdk/completion.zsh.inc'; fi
 source /Users/drg62sf/google-cloud-sdk/path.zsh.inc
 source /Users/drg62sf/google-cloud-sdk/completion.zsh.inc
-source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
