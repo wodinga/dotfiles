@@ -37,13 +37,15 @@ ln -sf "$(pwd)/.zshrc" $HOME/
 # Generate default ssh key
 # ssh-keygen
 
+source .zshrc
 
 ## Setting system defaults ##
 
 # Restart automatically if the computer freezes
 sudo systemsetup -setrestartfreeze on
 
-git submodule init && git submodule update
+# download vundle
+git submodule update --init --recursive
 
 # Install Vundle Plugin Manager for Vim
 if [[ ! -r ~/.vim/bundle/ ]]
