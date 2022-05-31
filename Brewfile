@@ -16,6 +16,7 @@ brew "zsh-lovers"
 brew "powerlevel10k"
 brew "nvim"
 brew "signal"
+brew "jq"
 
 cask "iterm2"
 cask "postman"
