@@ -17,6 +17,7 @@ brew "powerlevel10k"
 brew "nvim"
 brew "signal"
 brew "jq"
+brew "romkatv/powerlevel10k/powerlevel10k"
 
 cask "iterm2"
 cask "postman"
