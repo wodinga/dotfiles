@@ -159,14 +159,16 @@ export PATH="$PATH:$HOME/.rvm/bin"
 #eval "$(jenv init -)"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/drg62sf/bash install.sh --disable-prompts/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/drg62sf/bash install.sh --disable-prompts/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "$HOME/bash install.sh --disable-prompts/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/bash install.sh --disable-prompts/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/drg62sf/bash install.sh --disable-prompts/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/drg62sf/bash install.sh --disable-prompts/google-cloud-sdk/completion.zsh.inc'; fi
-source /Users/drg62sf/google-cloud-sdk/path.zsh.inc
-source /Users/drg62sf/google-cloud-sdk/completion.zsh.inc
+if [ -f "$HOME/bash install.sh --disable-prompts/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/bash install.sh --disable-prompts/google-cloud-sdk/completion.zsh.inc"; fi
+source $HOME/google-cloud-sdk/path.zsh.inc
+source $HOME/google-cloud-sdk/completion.zsh.inc
 source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+alias giaptunnel="gcloud compute start-iap-tunnel"
+alias gssh="gcloud compute ssh"
