@@ -82,22 +82,36 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  cloudfoundry
   brew
-	#catimg
-  #docker
+	catimg
+  docker
+  docker-compose
   encode64
+	kubectl
+	iterm2
   macos
-  node
-  pod
-  yarn
+  #node
+  #pod
+  #yarn
 	xcode
 	vundle
-	vscode
+	rsync
+	#vscode
 	z
 )
+
+# Enable zsh-completions that was installed through zsh
+# This includes completions the plugins above
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
 ZSH_DISABLE_COMPFIX=true
-source $ZSH/oh-my-zsh.sh
+
+source "$ZSH/oh-my-zsh.sh"
 
 # User configuration
 
