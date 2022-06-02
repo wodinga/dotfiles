@@ -89,6 +89,8 @@ plugins=(
   encode64
 	kubectl
 	iterm2
+	lol
+	emoji-clock
   macos
   #node
   #pod
