@@ -1,5 +1,6 @@
 tap "romkatv/powerlevel10k"
 
+brew "bash"
 brew "cf-cli"
 brew "git"
 brew "git-lfs"
