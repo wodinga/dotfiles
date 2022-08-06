@@ -1,9 +1,7 @@
 tap "romkatv/powerlevel10k"
 
 brew "bash"
-brew "cf-cli"
 brew "git"
-brew "git-lfs"
 brew "gradle"
 brew "nvm"
 brew "nyancat"
@@ -19,6 +17,7 @@ brew "nvim"
 brew "signal"
 brew "jq"
 brew "romkatv/powerlevel10k/powerlevel10k"
+brew "neofetch"
 
 cask "iterm2"
 cask "postman"

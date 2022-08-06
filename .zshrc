@@ -5,6 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+if [[ -v SSH_CONNECTION ]]; then
+	neofetch
+fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export TERM="xterm-256color"
@@ -92,9 +95,10 @@ plugins=(
 	lol
 	emoji-clock
   macos
-  #node
+  mac-zsh-completions
+  node
   #pod
-  #yarn
+  yarn
 	xcode
 	vundle
 	rsync
@@ -163,9 +167,9 @@ if [ -f "$HOME/bash install.sh --disable-prompts/google-cloud-sdk/path.zsh.inc" 
 
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/bash install.sh --disable-prompts/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/bash install.sh --disable-prompts/google-cloud-sdk/completion.zsh.inc"; fi
-source $HOME/google-cloud-sdk/path.zsh.inc
-source $HOME/google-cloud-sdk/completion.zsh.inc
-source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+#source $HOME/google-cloud-sdk/path.zsh.inc
+#source $HOME/google-cloud-sdk/completion.zsh.inc
+#source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
