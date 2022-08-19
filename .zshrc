@@ -5,9 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-if [[ -v SSH_CONNECTION ]]; then
-	neofetch
-fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export TERM="xterm-256color"
@@ -176,3 +173,8 @@ if [ -f "$HOME/bash install.sh --disable-prompts/google-cloud-sdk/completion.zsh
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 alias giaptunnel="gcloud compute start-iap-tunnel"
 alias gssh="gcloud compute ssh"
+
+# Display neofetch if we're ssh-ing
+if [[ -v SSH_CONNECTION ]]; then
+	neofetch
+fi
