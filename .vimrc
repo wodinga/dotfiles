@@ -10,10 +10,13 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'w0rp/ale'
+"let g:ale_completion_enabled = 1
+"Plugin 'w0rp/ale'
+Plugin 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'} " Linting, auto-completion. Might work better than ALE
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
+Plugin 'editorconfig/editorconfig-vim' ".editorconfig support
 Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
@@ -31,21 +34,23 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'jiangmiao/auto-pairs'
 "
 Plugin 'Markdown-syntax'
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 " Comment functions so powerful—no comment necessary.
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-Plugin 'pangloss/vim-javascript'" All of your Plugins must be added before the following line
-Plugin  'moll/vim-node'
-Plugin 'editorconfig/editorconfig-vim' ".editorconfig support
+Plugin 'Xuyuanp/nerdtree-git-plugin' "Git Integration for NERDTree"
+Plugin 'pangloss/vim-javascript' "Javascript
+Plugin 'leafgarland/typescript-vim' " typescript
+Plugin 'MaxMEllon/vim-jsx-pretty' " JSX
+"Plugin 'peitalin/vim-jsx-typscript' " TSX
+Plugin 'styled-components/vim-styled-components' " highlights CSS inside the styled and css template strings
+Plugin 'moll/vim-node'
 Plugin 'prettier/vim-prettier'
-Plugin 'jparise/vim-graphql' " GraphQL syntax highlighting
-Plugin 'apple/swift', {'rtp': 'utils/vim/', 'name' : 'Swift-Syntax'}
+"Plugin 'jparise/vim-graphql' " GraphQL syntax highlighting
+"Plugin 'apple/swift', {'rtp': 'utils/vim/', 'name' : 'Swift-Syntax'}
 Plugin 'dracula/vim', { 'name': 'dracula' }
-
-
-"Plugin 'keith/swift.vim'
+" All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -59,7 +64,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 
-
+" Vim preferences
 "set guifont=Inconsolata\ for\ Powerline:h15
 "let g:Powerline_symbols = 'fancy'
 "set encoding=utf-8
@@ -72,52 +77,122 @@ set tabstop=2
 set shiftwidth=2
 set number
 set relativenumber
-set autoindent
-set cindent
+set smartindent
 set paste
-:set ai
 set hlsearch
 set expandtab
 set autoread " Should auto-reload the file in many cases"
+set omnifunc=syntaxcomplete#Complete
 syntax on
 
+" ALE (Linting, hopefully autocomplete)
 " Set this variable to 1 to fix files when you save them.
-let g:ale_linters_explicit = 1
-let g:ale_fix_on_save = 1
+"let g:ale_linters_explicit = 1
+"let g:ale_fix_on_save = 1
+"let g:ale_linter_aliases = {'node': ['javascript','javascriptreact','typescript','javascript', 'typescriptreact']}
+
 
 " Set Linters for different programming languages
-let g:ale_linters = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\ 'json': [
-\   'jsonlint',
-\ ],
-\ 'javascript': [
-\   'eslint'
-\ ],
-\ 'python': [
-\   'pylint',
-\ ],
-\ 'java': [
-\   'javac',
-\   'google_java_format'
-\ ],
-\ 'swift': ['swiftlint']
-\}
+"\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+"\ 'json': [
+"\   'jsonlint',
+"\ ],
+"\ 'javascript': [
+"\   'eslint',
+"\   'tsserver'
+"\ ],
+"\ 'typescriptreact': [
+"\   'eslint',
+"\   'tsserver'
+"\ ],
+"\ 'python': [
+"\   'pylint',
+"\ ],
+"\ 'java': [
+"\   'javac',
+"\   'google_java_format'
+"\ ],
+"\ 'swift': ['swiftlint']
+"\}
+"
+"let g:ale_fixers = {
+"\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+"\ 'json': [
+"\   'jsonlint',
+"\ ],
+"\ 'javascript': [
+"\   'eslint',
+"\   'tsserver'
+"\ ],
+"\ 'typescriptreact': [
+"\   'eslint',
+"\   'tsserver'
+"\ ],
+"\ 'java': [
+"\   'javac',
+"\   'google_java_format'
+"\ ],
+"\}
+"
+" CoC rules
+" I got these from https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim
+let g:coc_global_extensions = [
+  \ 'coc-tsserver',
+  \ 'coc-yaml',
+  \ 'coc-java',
+  \ 'coc-eslint',
+  \ 'coc-jest',
+  \ 'coc-sourcekit',
+  \ 'coc-tsserver'
+  \ ]
+" Optionally load prettier or ESLint rules
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
 
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\ 'json': [
-\   'jsonlint',
-\ ],
-\ 'javascript': [
-\   'eslint'
-\ ],
-\ 'java': [
-\   'javac',
-\   'google_java_format'
-\ ],
-\}
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif
 
+nnoremap <silent> K :call CocAction('doHover')<CR> " show docs for file?
+
+function! ShowDocIfNoDiagnostic(timer_id)
+  if (coc#float#has_float() == 0 && CocHasProvider('hover') == 1)
+    silent call CocActionAsync('doHover')
+  endif
+endfunction
+
+function! s:show_hover_doc()
+  call timer_start(500, 'ShowDocIfNoDiagnostic')
+endfunction
+
+autocmd CursorHoldI * :call <SID>show_hover_doc()
+autocmd CursorHold * :call <SID>show_hover_doc()
+
+""""""""""""""""""""
+
+filetype on
 filetype plugin on
-set omnifunc=syntaxcomplete#Complete
+filetype plugin indent on    " required
 colorscheme dracula
+
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+
+" NERDTree Settings
+" Copied from: https://techinscribed.com/how-to-set-up-vim-as-an-ide-for-react-and-typescript-in-2020/
+
+autocmd VimEnter * NERDTree "Open NerdTree by Default
+autocmd VimEnter * wincmd p " Set focus to the editor (as opposed NERDTree after opening)
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif "AutoClose NerdTree
+
+" Map completion to tab button
+inoremap <silent><expr> <C-TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<C-TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
