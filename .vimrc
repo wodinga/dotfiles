@@ -38,6 +38,7 @@ Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 " Comment functions so powerful—no comment necessary.
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
+Plugin 'mechatroner/rainbow_csv'
 Plugin 'Xuyuanp/nerdtree-git-plugin' "Git Integration for NERDTree"
 Plugin 'pangloss/vim-javascript' "Javascript
 Plugin 'leafgarland/typescript-vim' " typescript

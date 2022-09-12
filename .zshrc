@@ -83,24 +83,24 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
   git
   brew
-	catimg
+  catimg
   docker
   docker-compose
   encode64
-	kubectl
-	iterm2
-	lol
-	emoji-clock
+  kubectl
+  iterm2
+  lol
+  emoji-clock
   macos
   mac-zsh-completions
   node
   #pod
   yarn
-	xcode
-	vundle
-	rsync
-	#vscode
-	z
+  xcode
+  vundle
+  rsync
+  #vscode
+  z
 )
 
 # Enable zsh-completions that was installed through zsh
