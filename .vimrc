@@ -66,7 +66,7 @@ call vundle#end()            " required
 
 
 " Vim preferences
-"set guifont=Inconsolata\ for\ Powerline:h15
+set guifont=Meslo\ for\ Powerline:h15
 "let g:Powerline_symbols = 'fancy'
 "set encoding=utf-8
 "set t_Co=256
