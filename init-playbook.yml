@@ -1,0 +1,10 @@
+---
+- name: Get basic info
+  hosts: all
+  tasks:
+    - name: Get hostname
+      ansible.builtin.command: hostname
+    - name: get the date
+      ansible.builtin.command: date
+    - name: whoami
+      ansible.builtin.command: whoami
