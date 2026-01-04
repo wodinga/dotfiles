@@ -1,10 +1,39 @@
 ---
-- name: Get basic info
+- name: Install homebrew packages
   hosts: all
   tasks:
-    - name: Get hostname
-      ansible.builtin.command: hostname
-    - name: get the date
-      ansible.builtin.command: date
-    - name: whoami
-      ansible.builtin.command: whoami
+    - name: Check if homebrew is installed
+      stat:
+        path: "{{ item }}"
+      register: homebrew_check
+      loop:
+        - /opt/homebrew/bin/brew
+        - /usr/local/bin/brew
+    - name: Set fact if any file exists
+      ansible.builtin.set_fact:
+        any_file_exists: >-
+          {{
+            homebrew_check.results
+            | map(attribute='stat.exists')
+            | select('equalto', true)
+            | list
+            | length > 0
+          }}
+    - name: get homebrew
+      ansible.builtin.get_url:
+        url: https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+        dest: /tmp/homebrew_install.sh
+        mode: "0755"
+      when:
+        - not any_file_exists
+    - name: Ensure sudo timestamp is valid (so brew install won't prompt)
+      ansible.builtin.command: sudo -v
+      changed_when: false
+    - name: install homebrew
+      ansible.builtin.command: "/bin/bash /tmp/homebrew_install.sh"
+      environment:
+        - NONINTERACTIVE: "1"
+      when:
+        - not any_file_exists
+    - name: Install brew packages
+      ansible.builtin.command: "brew bundle"
