@@ -5,21 +5,8 @@ ZSHRC=".zshrc"
 OHMYZSH=$HOME/.oh-my-zsh
 SSHPUBKEY=$HOME/.ssh/.id_rsa.pub
 
-xcode-select --install
-
-# Check if Oh My Zsh is installed
-if [[ -d $OHMYZSH ]]
-then
-  echo -e "Oh My Zsh is already installed"
-else
-  echo -e "Oh My Zsh is not installed"
-  # Install Oh My Zsh
-  sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-fi
-
 # Check if homebrew is installed
-if [[ -x $(which brew) ]]
-then
+if [[ -x $(which brew) ]]; then
   echo -e "Brew exists\n"
   brew update
 
@@ -27,6 +14,16 @@ else
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
+# Check if Oh My Zsh is installed
+if [[ -d $OHMYZSH ]]; then
+  echo -e "Oh My Zsh is already installed"
+else
+  echo -e "Oh My Zsh is not installed"
+  # Install Oh My Zsh
+  sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+fi
+
+xcode-select --install
 #Install Homebrew dependencies
 brew bundle
 
@@ -48,9 +45,8 @@ sudo systemsetup -setrestartfreeze on
 git submodule update --init --recursive
 
 # Install Vundle Plugin Manager for Vim
-if [[ ! -r ~/.vim/bundle/ ]]
-then
-	mkdir -p ~/.vim/bundle/
+if [[ ! -r ~/.vim/bundle/ ]]; then
+  mkdir -p ~/.vim/bundle/
 fi
 
 ln -sf "$(pwd)/Vundle.vim" ~/.vim/bundle
