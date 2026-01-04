@@ -1,0 +1,17 @@
+---
+- name: setup the terminal
+  hosts: all
+  tasks:
+    - name: debug home dir
+      debug:
+        msg: "{{ ansible_facts['env']['HOME'] }}"
+    - name: Check if OhMyZsh is installed
+      ansible.builtin.stat:
+        path: "{{ ansible_facts['env']['HOME'] }}"
+      register: omz_installed
+    - name: download OhMyZsh! Install script
+      ansible.builtin.get_url:
+        url: sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+        dest: /tmp/omz_install.sh
+      when:
+        - not omz_installed.stat.exists
